@@ -1,0 +1,360 @@
+2024/07/10 00:26:16 routes.go:1033: INFO server config env="map[OLLAMA_DEBUG:true OLLAMA_FLASH_ATTENTION:true OLLAMA_HOST:http://0.0.0.0:11434 OLLAMA_KEEP_ALIVE:6m40s OLLAMA_LLM_LIBRARY:/Users/ih0dl/lib/python3.11/site-packages OLLAMA_MAX_LOADED_MODELS:4 OLLAMA_MAX_QUEUE:512 OLLAMA_MAX_VRAM:0 OLLAMA_MODELS:/Users/ih0dl/.ollama/models OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:true OLLAMA_NUM_PARALLEL:4 OLLAMA_ORIGINS:[* http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://*] OLLAMA_RUNNERS_DIR: OLLAMA_SCHED_SPREAD:false OLLAMA_TMPDIR:]"
+time=2024-07-10T00:26:16.552-04:00 level=INFO source=routes.go:1080 msg="Listening on [::]:11434 (version 0.2.0)"
+time=2024-07-10T00:26:16.554-04:00 level=WARN source=assets.go:100 msg="unable to cleanup stale tmpdir" path=/var/folders/zz/d9r636l52p91k1z6gmk9v1p00000gp/T/ollama230823554 error="remove /var/folders/zz/d9r636l52p91k1z6gmk9v1p00000gp/T/ollama230823554: directory not empty"
+time=2024-07-10T00:26:16.554-04:00 level=INFO source=payload.go:30 msg="extracting embedded files" dir=/var/folders/zz/d9r636l52p91k1z6gmk9v1p00000gp/T/ollama1619639915/runners
+time=2024-07-10T00:26:16.554-04:00 level=DEBUG source=payload.go:182 msg=extracting variant=metal file=build/darwin/arm64/metal/bin/ggml-common.h.gz
+time=2024-07-10T00:26:16.554-04:00 level=DEBUG source=payload.go:182 msg=extracting variant=metal file=build/darwin/arm64/metal/bin/ggml-metal.metal.gz
+time=2024-07-10T00:26:16.554-04:00 level=DEBUG source=payload.go:182 msg=extracting variant=metal file=build/darwin/arm64/metal/bin/ollama_llama_server.gz
+time=2024-07-10T00:26:16.579-04:00 level=DEBUG source=payload.go:71 msg="availableServers : found" file=/var/folders/zz/d9r636l52p91k1z6gmk9v1p00000gp/T/ollama1619639915/runners/metal/ollama_llama_server
+time=2024-07-10T00:26:16.579-04:00 level=INFO source=payload.go:44 msg="Dynamic LLM libraries [metal]"
+time=2024-07-10T00:26:16.579-04:00 level=DEBUG source=payload.go:45 msg="Override detection logic by setting OLLAMA_LLM_LIBRARY"
+time=2024-07-10T00:26:16.579-04:00 level=DEBUG source=sched.go:102 msg="starting llm scheduler"
+time=2024-07-10T00:26:16.616-04:00 level=INFO source=types.go:103 msg="inference compute" id=0 library=metal compute="" driver=0.0 name="" total="48.0 GiB" available="48.0 GiB"
+[GIN] 2024/07/10 - 00:30:13 | 200 |   11.692917ms |   192.168.1.104 | GET      "/api/tags"
+[GIN] 2024/07/10 - 00:45:47 | 200 |    5.752958ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2024/07/10 - 00:47:23 | 200 |   10.642542ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2024/07/10 - 00:47:23 | 200 |      59.834µs |       127.0.0.1 | GET      "/api/version"
+[GIN] 2024/07/10 - 00:49:23 | 200 |      43.667µs |       127.0.0.1 | GET      "/api/version"
+time=2024-07-10T00:49:29.235-04:00 level=DEBUG source=memory.go:101 msg=evaluating library=metal gpu_count=1 available="[48.0 GiB]"
+time=2024-07-10T00:49:29.236-04:00 level=DEBUG source=sched.go:254 msg="loading first model" model=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+time=2024-07-10T00:49:29.236-04:00 level=DEBUG source=memory.go:101 msg=evaluating library=metal gpu_count=1 available="[48.0 GiB]"
+time=2024-07-10T00:49:29.236-04:00 level=INFO source=sched.go:741 msg="new model will fit in available VRAM in single GPU, loading" model=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4 gpu=0 parallel=4 available=51539607552 required="3.2 GiB"
+time=2024-07-10T00:49:29.236-04:00 level=DEBUG source=server.go:98 msg="system memory" total="64.0 GiB" free=50682511360
+time=2024-07-10T00:49:29.236-04:00 level=DEBUG source=memory.go:101 msg=evaluating library=metal gpu_count=1 available="[48.0 GiB]"
+time=2024-07-10T00:49:29.236-04:00 level=INFO source=memory.go:309 msg="offload to metal" layers.requested=-1 layers.model=23 layers.offload=23 layers.split="" memory.available="[48.0 GiB]" memory.required.full="3.2 GiB" memory.required.partial="3.2 GiB" memory.required.kv="176.0 MiB" memory.required.allocations="[3.2 GiB]" memory.weights.total="2.0 GiB" memory.weights.repeating="1.9 GiB" memory.weights.nonrepeating="125.0 MiB" memory.graph.full="544.0 MiB" memory.graph.partial="544.0 MiB"
+time=2024-07-10T00:49:29.236-04:00 level=DEBUG source=payload.go:71 msg="availableServers : found" file=/var/folders/zz/d9r636l52p91k1z6gmk9v1p00000gp/T/ollama1619639915/runners/metal/ollama_llama_server
+time=2024-07-10T00:49:29.236-04:00 level=DEBUG source=payload.go:71 msg="availableServers : found" file=/var/folders/zz/d9r636l52p91k1z6gmk9v1p00000gp/T/ollama1619639915/runners/metal/ollama_llama_server
+time=2024-07-10T00:49:29.236-04:00 level=INFO source=server.go:158 msg="Invalid OLLAMA_LLM_LIBRARY /Users/ih0dl/lib/python3.11/site-packages - not found"
+time=2024-07-10T00:49:29.238-04:00 level=INFO source=server.go:375 msg="starting llama server" cmd="/var/folders/zz/d9r636l52p91k1z6gmk9v1p00000gp/T/ollama1619639915/runners/metal/ollama_llama_server --model /Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4 --ctx-size 8192 --batch-size 512 --embedding --log-disable --n-gpu-layers 23 --verbose --flash-attn --parallel 4 --port 60193"
+time=2024-07-10T00:49:29.238-04:00 level=DEBUG source=server.go:390 msg=subprocess environment="[PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/Users/ih0dl/.pyenv/shims:/Users/ih0dl/.pyenv/bin:/Users/ih0dl/.pyenv/plugins/pyenv-virtualenv/shims:/Users/ih0dl/.nvm/versions/node/v20.13.0/bin:/opt/homebrew/opt/python@3.11/libexec/bin:/opt/homebrew/opt/python@3.12/libexec/bin:/Users/ih0dl/bin:/usr/local/bin:/Users/ih0dl/.cache/lm-studio/bin:/Users/ih0dl/.cargo/bin:/Users/ih0dl/.nvm/versions/node/v20.13.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/usr/local/go/bin LD_LIBRARY_PATH=/var/folders/zz/d9r636l52p91k1z6gmk9v1p00000gp/T/ollama1619639915/runners/metal:/var/folders/zz/d9r636l52p91k1z6gmk9v1p00000gp/T/ollama1619639915/runners]"
+time=2024-07-10T00:49:29.244-04:00 level=INFO source=sched.go:477 msg="loaded runners" count=1
+time=2024-07-10T00:49:29.244-04:00 level=INFO source=server.go:563 msg="waiting for llama runner to start responding"
+time=2024-07-10T00:49:29.245-04:00 level=INFO source=server.go:604 msg="waiting for server to become available" status="llm server error"
+INFO [main] build info | build=3337 commit="a8db2a9c" tid="0x20425cc00" timestamp=1720586969
+INFO [main] system info | n_threads=8 n_threads_batch=-1 system_info="AVX = 0 | AVX_VNNI = 0 | AVX2 = 0 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | AVX512_BF16 = 0 | FMA = 0 | NEON = 1 | SVE = 0 | ARM_FMA = 1 | F16C = 0 | FP16_VA = 1 | WASM_SIMD = 0 | BLAS = 1 | SSE3 = 0 | SSSE3 = 0 | VSX = 0 | MATMUL_INT8 = 0 | LLAMAFILE = 0 | " tid="0x20425cc00" timestamp=1720586969 total_threads=10
+INFO [main] HTTP server listening | hostname="127.0.0.1" n_threads_http="9" port="60193" tid="0x20425cc00" timestamp=1720586969
+llama_model_loader: loaded meta data with 22 key-value pairs and 201 tensors from /Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4 (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = llama
+llama_model_loader: - kv   1:                               general.name str              = TinyLlama
+llama_model_loader: - kv   2:                       llama.context_length u32              = 2048
+llama_model_loader: - kv   3:                     llama.embedding_length u32              = 2048
+llama_model_loader: - kv   4:                          llama.block_count u32              = 22
+llama_model_loader: - kv   5:                  llama.feed_forward_length u32              = 5632
+llama_model_loader: - kv   6:                 llama.rope.dimension_count u32              = 64
+llama_model_loader: - kv   7:                 llama.attention.head_count u32              = 32
+llama_model_loader: - kv   8:              llama.attention.head_count_kv u32              = 4
+llama_model_loader: - kv   9:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  10:                       llama.rope.freq_base f32              = 10000.000000
+llama_model_loader: - kv  11:                          general.file_type u32              = 1
+llama_model_loader: - kv  12:                       tokenizer.ggml.model str              = llama
+llama_model_loader: - kv  13:                      tokenizer.ggml.tokens arr[str,32000]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+time=2024-07-10T00:49:29.496-04:00 level=INFO source=server.go:604 msg="waiting for server to become available" status="llm server loading model"
+llama_model_loader: - kv  14:                      tokenizer.ggml.scores arr[f32,32000]   = [0.000000, 0.000000, 0.000000, 0.0000...
+llama_model_loader: - kv  15:                  tokenizer.ggml.token_type arr[i32,32000]   = [2, 3, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+llama_model_loader: - kv  16:                      tokenizer.ggml.merges arr[str,61249]   = ["▁ t", "e r", "i n", "▁ a", "e n...
+llama_model_loader: - kv  17:                tokenizer.ggml.bos_token_id u32              = 1
+llama_model_loader: - kv  18:                tokenizer.ggml.eos_token_id u32              = 2
+llama_model_loader: - kv  19:            tokenizer.ggml.unknown_token_id u32              = 0
+llama_model_loader: - kv  20:            tokenizer.ggml.padding_token_id u32              = 2
+llama_model_loader: - kv  21:                    tokenizer.chat_template str              = {% for message in messages %}\n{% if m...
+llama_model_loader: - type  f32:   45 tensors
+llama_model_loader: - type  f16:  156 tensors
+llm_load_vocab: special tokens cache size = 259
+llm_load_vocab: token to piece cache size = 0.1684 MB
+llm_load_print_meta: format           = GGUF V3 (latest)
+llm_load_print_meta: arch             = llama
+llm_load_print_meta: vocab type       = SPM
+llm_load_print_meta: n_vocab          = 32000
+llm_load_print_meta: n_merges         = 0
+llm_load_print_meta: vocab_only       = 0
+llm_load_print_meta: n_ctx_train      = 2048
+llm_load_print_meta: n_embd           = 2048
+llm_load_print_meta: n_layer          = 22
+llm_load_print_meta: n_head           = 32
+llm_load_print_meta: n_head_kv        = 4
+llm_load_print_meta: n_rot            = 64
+llm_load_print_meta: n_swa            = 0
+llm_load_print_meta: n_embd_head_k    = 64
+llm_load_print_meta: n_embd_head_v    = 64
+llm_load_print_meta: n_gqa            = 8
+llm_load_print_meta: n_embd_k_gqa     = 256
+llm_load_print_meta: n_embd_v_gqa     = 256
+llm_load_print_meta: f_norm_eps       = 0.0e+00
+llm_load_print_meta: f_norm_rms_eps   = 1.0e-05
+llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+llm_load_print_meta: f_logit_scale    = 0.0e+00
+llm_load_print_meta: n_ff             = 5632
+llm_load_print_meta: n_expert         = 0
+llm_load_print_meta: n_expert_used    = 0
+llm_load_print_meta: causal attn      = 1
+llm_load_print_meta: pooling type     = 0
+llm_load_print_meta: rope type        = 0
+llm_load_print_meta: rope scaling     = linear
+llm_load_print_meta: freq_base_train  = 10000.0
+llm_load_print_meta: freq_scale_train = 1
+llm_load_print_meta: n_ctx_orig_yarn  = 2048
+llm_load_print_meta: rope_finetuned   = unknown
+llm_load_print_meta: ssm_d_conv       = 0
+llm_load_print_meta: ssm_d_inner      = 0
+llm_load_print_meta: ssm_d_state      = 0
+llm_load_print_meta: ssm_dt_rank      = 0
+llm_load_print_meta: model type       = 1B
+llm_load_print_meta: model ftype      = F16
+llm_load_print_meta: model params     = 1.10 B
+llm_load_print_meta: model size       = 2.05 GiB (16.00 BPW) 
+llm_load_print_meta: general.name     = TinyLlama
+llm_load_print_meta: BOS token        = 1 '<s>'
+llm_load_print_meta: EOS token        = 2 '</s>'
+llm_load_print_meta: UNK token        = 0 '<unk>'
+llm_load_print_meta: PAD token        = 2 '</s>'
+llm_load_print_meta: LF token         = 13 '<0x0A>'
+llm_load_print_meta: max token length = 48
+llm_load_tensors: ggml ctx size =    0.19 MiB
+ggml_backend_metal_log_allocated_size: allocated buffer, size =  2098.36 MiB, ( 2098.42 / 49152.00)
+llm_load_tensors: offloading 22 repeating layers to GPU
+llm_load_tensors: offloading non-repeating layers to GPU
+llm_load_tensors: offloaded 23/23 layers to GPU
+llm_load_tensors:        CPU buffer size =   125.00 MiB
+llm_load_tensors:      Metal buffer size =  2098.36 MiB
+llama_new_context_with_model: n_ctx      = 8192
+llama_new_context_with_model: n_batch    = 512
+llama_new_context_with_model: n_ubatch   = 512
+llama_new_context_with_model: flash_attn = 1
+llama_new_context_with_model: freq_base  = 10000.0
+llama_new_context_with_model: freq_scale = 1
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M1 Max
+ggml_metal_init: picking default device: Apple M1 Max
+ggml_metal_init: using embedded metal library
+ggml_metal_init: GPU name:   Apple M1 Max
+ggml_metal_init: GPU family: MTLGPUFamilyApple7  (1007)
+ggml_metal_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_init: GPU family: MTLGPUFamilyMetal3  (5001)
+ggml_metal_init: simdgroup reduction support   = true
+ggml_metal_init: simdgroup matrix mul. support = true
+ggml_metal_init: hasUnifiedMemory              = true
+ggml_metal_init: recommendedMaxWorkingSetSize  = 51539.61 MB
+llama_kv_cache_init:      Metal KV buffer size =   176.00 MiB
+llama_new_context_with_model: KV self size  =  176.00 MiB, K (f16):   88.00 MiB, V (f16):   88.00 MiB
+llama_new_context_with_model:        CPU  output buffer size =     0.52 MiB
+llama_new_context_with_model:      Metal compute buffer size =    66.50 MiB
+llama_new_context_with_model:        CPU compute buffer size =    20.01 MiB
+llama_new_context_with_model: graph nodes  = 623
+llama_new_context_with_model: graph splits = 2
+time=2024-07-10T00:49:29.748-04:00 level=DEBUG source=server.go:615 msg="model load progress 1.00"
+time=2024-07-10T00:49:30.000-04:00 level=DEBUG source=server.go:618 msg="model load completed, waiting for server to become available" status="llm server loading model"
+DEBUG [initialize] initializing slots | n_slots=4 tid="0x20425cc00" timestamp=1720586971
+DEBUG [initialize] new slot | n_ctx_slot=2048 slot_id=0 tid="0x20425cc00" timestamp=1720586971
+DEBUG [initialize] new slot | n_ctx_slot=2048 slot_id=1 tid="0x20425cc00" timestamp=1720586971
+DEBUG [initialize] new slot | n_ctx_slot=2048 slot_id=2 tid="0x20425cc00" timestamp=1720586971
+DEBUG [initialize] new slot | n_ctx_slot=2048 slot_id=3 tid="0x20425cc00" timestamp=1720586971
+INFO [main] model loaded | tid="0x20425cc00" timestamp=1720586971
+DEBUG [update_slots] all slots are idle and system prompt is empty, clear the KV cache | tid="0x20425cc00" timestamp=1720586971
+DEBUG [process_single_task] slot data | n_idle_slots=4 n_processing_slots=0 task_id=0 tid="0x20425cc00" timestamp=1720586972
+time=2024-07-10T00:49:32.013-04:00 level=INFO source=server.go:609 msg="llama runner started in 2.77 seconds"
+time=2024-07-10T00:49:32.013-04:00 level=DEBUG source=sched.go:490 msg="finished setting up runner" model=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+DEBUG [process_single_task] slot data | n_idle_slots=4 n_processing_slots=0 task_id=1 tid="0x20425cc00" timestamp=1720586972
+DEBUG [log_server_request] request | method="POST" params={} path="/tokenize" remote_addr="127.0.0.1" remote_port=60199 status=200 tid="0x16f22b000" timestamp=1720586972
+time=2024-07-10T00:49:32.014-04:00 level=DEBUG source=prompt.go:168 msg="prompt now fits in context window" required=45 window=2048
+time=2024-07-10T00:49:32.014-04:00 level=DEBUG source=routes.go:1334 msg="chat handler" prompt="<|system|>\nYou are a helpful AI assistant.</s>\n<|user|>\nTell me a random fun fact about the Roman Empire</s>\n<|assistant|>\n" images=0
+DEBUG [process_single_task] slot data | n_idle_slots=4 n_processing_slots=0 task_id=2 tid="0x20425cc00" timestamp=1720586972
+DEBUG [launch_slot_with_data] slot is processing task | slot_id=0 task_id=3 tid="0x20425cc00" timestamp=1720586972
+DEBUG [update_slots] slot progression | ga_i=0 n_past=0 n_past_se=0 n_prompt_tokens_processed=45 slot_id=0 task_id=3 tid="0x20425cc00" timestamp=1720586972
+DEBUG [update_slots] kv cache rm [p0, end) | p0=0 slot_id=0 task_id=3 tid="0x20425cc00" timestamp=1720586972
+DEBUG [print_timings] prompt eval time     =      36.38 ms /    45 tokens (    0.81 ms per token,  1236.98 tokens per second) | n_prompt_tokens_processed=45 n_tokens_second=1236.977377058193 slot_id=0 t_prompt_processing=36.379 t_token=0.8084222222222222 task_id=3 tid="0x20425cc00" timestamp=1720586973
+DEBUG [print_timings] generation eval time =    1171.41 ms /   114 runs   (   10.28 ms per token,    97.32 tokens per second) | n_decoded=114 n_tokens_second=97.3186991050948 slot_id=0 t_token=10.27551754385965 t_token_generation=1171.409 task_id=3 tid="0x20425cc00" timestamp=1720586973
+DEBUG [print_timings]           total time =    1207.79 ms | slot_id=0 t_prompt_processing=36.379 t_token_generation=1171.409 t_total=1207.788 task_id=3 tid="0x20425cc00" timestamp=1720586973
+DEBUG [update_slots] slot released | n_cache_tokens=159 n_ctx=8192 n_past=158 n_system_tokens=0 slot_id=0 task_id=3 tid="0x20425cc00" timestamp=1720586973 truncated=false
+DEBUG [log_server_request] request | method="POST" params={} path="/completion" remote_addr="127.0.0.1" remote_port=60199 status=200 tid="0x16f22b000" timestamp=1720586973
+[GIN] 2024/07/10 - 00:49:33 | 200 |  4.002352417s |       127.0.0.1 | POST     "/api/chat"
+time=2024-07-10T00:49:33.223-04:00 level=DEBUG source=sched.go:494 msg="context for request finished"
+time=2024-07-10T00:49:33.223-04:00 level=DEBUG source=sched.go:366 msg="runner with non-zero duration has gone idle, adding timer" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4 duration=6m40s
+time=2024-07-10T00:49:33.223-04:00 level=DEBUG source=sched.go:384 msg="after processing request finished event" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4 refCount=0
+time=2024-07-10T00:49:33.298-04:00 level=DEBUG source=sched.go:603 msg="evaluating already loaded" model=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+time=2024-07-10T00:49:33.298-04:00 level=DEBUG source=sched.go:310 msg="resetting model to expire immediately to make room" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4 refCount=0
+time=2024-07-10T00:49:33.298-04:00 level=DEBUG source=sched.go:323 msg="waiting for pending requests to complete and unload to occur" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+time=2024-07-10T00:49:33.298-04:00 level=DEBUG source=sched.go:387 msg="runner expired event received" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+time=2024-07-10T00:49:33.298-04:00 level=DEBUG source=sched.go:403 msg="got lock to unload" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+time=2024-07-10T00:49:33.298-04:00 level=DEBUG source=server.go:1026 msg="stopping llama server"
+time=2024-07-10T00:49:33.298-04:00 level=DEBUG source=server.go:1032 msg="waiting for llama server to exit"
+time=2024-07-10T00:49:33.303-04:00 level=DEBUG source=server.go:1036 msg="llama server stopped"
+time=2024-07-10T00:49:33.303-04:00 level=DEBUG source=sched.go:408 msg="runner released" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+time=2024-07-10T00:49:33.303-04:00 level=DEBUG source=sched.go:412 msg="sending an unloaded event" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+time=2024-07-10T00:49:33.303-04:00 level=DEBUG source=sched.go:329 msg="unload completed" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+time=2024-07-10T00:49:33.307-04:00 level=DEBUG source=memory.go:101 msg=evaluating library=metal gpu_count=1 available="[48.0 GiB]"
+time=2024-07-10T00:49:33.308-04:00 level=DEBUG source=sched.go:254 msg="loading first model" model=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+time=2024-07-10T00:49:33.308-04:00 level=DEBUG source=memory.go:101 msg=evaluating library=metal gpu_count=1 available="[48.0 GiB]"
+time=2024-07-10T00:49:33.308-04:00 level=INFO source=sched.go:741 msg="new model will fit in available VRAM in single GPU, loading" model=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4 gpu=0 parallel=4 available=51539607552 required="3.2 GiB"
+time=2024-07-10T00:49:33.308-04:00 level=DEBUG source=server.go:98 msg="system memory" total="64.0 GiB" free=47631007744
+time=2024-07-10T00:49:33.308-04:00 level=DEBUG source=memory.go:101 msg=evaluating library=metal gpu_count=1 available="[48.0 GiB]"
+time=2024-07-10T00:49:33.308-04:00 level=INFO source=memory.go:309 msg="offload to metal" layers.requested=-1 layers.model=23 layers.offload=23 layers.split="" memory.available="[48.0 GiB]" memory.required.full="3.2 GiB" memory.required.partial="3.2 GiB" memory.required.kv="176.0 MiB" memory.required.allocations="[3.2 GiB]" memory.weights.total="2.0 GiB" memory.weights.repeating="1.9 GiB" memory.weights.nonrepeating="125.0 MiB" memory.graph.full="544.0 MiB" memory.graph.partial="544.0 MiB"
+time=2024-07-10T00:49:33.308-04:00 level=DEBUG source=payload.go:71 msg="availableServers : found" file=/var/folders/zz/d9r636l52p91k1z6gmk9v1p00000gp/T/ollama1619639915/runners/metal/ollama_llama_server
+time=2024-07-10T00:49:33.308-04:00 level=DEBUG source=payload.go:71 msg="availableServers : found" file=/var/folders/zz/d9r636l52p91k1z6gmk9v1p00000gp/T/ollama1619639915/runners/metal/ollama_llama_server
+time=2024-07-10T00:49:33.308-04:00 level=INFO source=server.go:158 msg="Invalid OLLAMA_LLM_LIBRARY /Users/ih0dl/lib/python3.11/site-packages - not found"
+time=2024-07-10T00:49:33.321-04:00 level=INFO source=server.go:375 msg="starting llama server" cmd="/var/folders/zz/d9r636l52p91k1z6gmk9v1p00000gp/T/ollama1619639915/runners/metal/ollama_llama_server --model /Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4 --ctx-size 8192 --batch-size 512 --embedding --log-disable --n-gpu-layers 23 --verbose --flash-attn --parallel 4 --port 60201"
+time=2024-07-10T00:49:33.321-04:00 level=DEBUG source=server.go:390 msg=subprocess environment="[PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/Users/ih0dl/.pyenv/shims:/Users/ih0dl/.pyenv/bin:/Users/ih0dl/.pyenv/plugins/pyenv-virtualenv/shims:/Users/ih0dl/.nvm/versions/node/v20.13.0/bin:/opt/homebrew/opt/python@3.11/libexec/bin:/opt/homebrew/opt/python@3.12/libexec/bin:/Users/ih0dl/bin:/usr/local/bin:/Users/ih0dl/.cache/lm-studio/bin:/Users/ih0dl/.cargo/bin:/Users/ih0dl/.nvm/versions/node/v20.13.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/usr/local/go/bin LD_LIBRARY_PATH=/var/folders/zz/d9r636l52p91k1z6gmk9v1p00000gp/T/ollama1619639915/runners/metal:/var/folders/zz/d9r636l52p91k1z6gmk9v1p00000gp/T/ollama1619639915/runners]"
+time=2024-07-10T00:49:33.323-04:00 level=INFO source=sched.go:477 msg="loaded runners" count=1
+time=2024-07-10T00:49:33.323-04:00 level=INFO source=server.go:563 msg="waiting for llama runner to start responding"
+time=2024-07-10T00:49:33.324-04:00 level=INFO source=server.go:604 msg="waiting for server to become available" status="llm server error"
+INFO [main] build info | build=3337 commit="a8db2a9c" tid="0x20425cc00" timestamp=1720586973
+INFO [main] system info | n_threads=8 n_threads_batch=-1 system_info="AVX = 0 | AVX_VNNI = 0 | AVX2 = 0 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | AVX512_BF16 = 0 | FMA = 0 | NEON = 1 | SVE = 0 | ARM_FMA = 1 | F16C = 0 | FP16_VA = 1 | WASM_SIMD = 0 | BLAS = 1 | SSE3 = 0 | SSSE3 = 0 | VSX = 0 | MATMUL_INT8 = 0 | LLAMAFILE = 0 | " tid="0x20425cc00" timestamp=1720586973 total_threads=10
+INFO [main] HTTP server listening | hostname="127.0.0.1" n_threads_http="9" port="60201" tid="0x20425cc00" timestamp=1720586973
+llama_model_loader: loaded meta data with 22 key-value pairs and 201 tensors from /Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4 (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = llama
+llama_model_loader: - kv   1:                               general.name str              = TinyLlama
+llama_model_loader: - kv   2:                       llama.context_length u32              = 2048
+llama_model_loader: - kv   3:                     llama.embedding_length u32              = 2048
+llama_model_loader: - kv   4:                          llama.block_count u32              = 22
+llama_model_loader: - kv   5:                  llama.feed_forward_length u32              = 5632
+llama_model_loader: - kv   6:                 llama.rope.dimension_count u32              = 64
+llama_model_loader: - kv   7:                 llama.attention.head_count u32              = 32
+llama_model_loader: - kv   8:              llama.attention.head_count_kv u32              = 4
+llama_model_loader: - kv   9:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  10:                       llama.rope.freq_base f32              = 10000.000000
+llama_model_loader: - kv  11:                          general.file_type u32              = 1
+llama_model_loader: - kv  12:                       tokenizer.ggml.model str              = llama
+llama_model_loader: - kv  13:                      tokenizer.ggml.tokens arr[str,32000]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+llama_model_loader: - kv  14:                      tokenizer.ggml.scores arr[f32,32000]   = [0.000000, 0.000000, 0.000000, 0.0000...
+llama_model_loader: - kv  15:                  tokenizer.ggml.token_type arr[i32,32000]   = [2, 3, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+llama_model_loader: - kv  16:                      tokenizer.ggml.merges arr[str,61249]   = ["▁ t", "e r", "i n", "▁ a", "e n...
+llama_model_loader: - kv  17:                tokenizer.ggml.bos_token_id u32              = 1
+llama_model_loader: - kv  18:                tokenizer.ggml.eos_token_id u32              = 2
+llama_model_loader: - kv  19:            tokenizer.ggml.unknown_token_id u32              = 0
+llama_model_loader: - kv  20:            tokenizer.ggml.padding_token_id u32              = 2
+llama_model_loader: - kv  21:                    tokenizer.chat_template str              = {% for message in messages %}\n{% if m...
+llama_model_loader: - type  f32:   45 tensors
+llama_model_loader: - type  f16:  156 tensors
+llm_load_vocab: special tokens cache size = 259
+llm_load_vocab: token to piece cache size = 0.1684 MB
+llm_load_print_meta: format           = GGUF V3 (latest)
+llm_load_print_meta: arch             = llama
+llm_load_print_meta: vocab type       = SPM
+llm_load_print_meta: n_vocab          = 32000
+llm_load_print_meta: n_merges         = 0
+llm_load_print_meta: vocab_only       = 0
+llm_load_print_meta: n_ctx_train      = 2048
+llm_load_print_meta: n_embd           = 2048
+llm_load_print_meta: n_layer          = 22
+llm_load_print_meta: n_head           = 32
+llm_load_print_meta: n_head_kv        = 4
+llm_load_print_meta: n_rot            = 64
+llm_load_print_meta: n_swa            = 0
+llm_load_print_meta: n_embd_head_k    = 64
+llm_load_print_meta: n_embd_head_v    = 64
+llm_load_print_meta: n_gqa            = 8
+llm_load_print_meta: n_embd_k_gqa     = 256
+llm_load_print_meta: n_embd_v_gqa     = 256
+llm_load_print_meta: f_norm_eps       = 0.0e+00
+llm_load_print_meta: f_norm_rms_eps   = 1.0e-05
+llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+llm_load_print_meta: f_logit_scale    = 0.0e+00
+llm_load_print_meta: n_ff             = 5632
+llm_load_print_meta: n_expert         = 0
+llm_load_print_meta: n_expert_used    = 0
+llm_load_print_meta: causal attn      = 1
+llm_load_print_meta: pooling type     = 0
+llm_load_print_meta: rope type        = 0
+llm_load_print_meta: rope scaling     = linear
+llm_load_print_meta: freq_base_train  = 10000.0
+llm_load_print_meta: freq_scale_train = 1
+llm_load_print_meta: n_ctx_orig_yarn  = 2048
+llm_load_print_meta: rope_finetuned   = unknown
+llm_load_print_meta: ssm_d_conv       = 0
+llm_load_print_meta: ssm_d_inner      = 0
+llm_load_print_meta: ssm_d_state      = 0
+llm_load_print_meta: ssm_dt_rank      = 0
+llm_load_print_meta: model type       = 1B
+llm_load_print_meta: model ftype      = F16
+llm_load_print_meta: model params     = 1.10 B
+llm_load_print_meta: model size       = 2.05 GiB (16.00 BPW) 
+llm_load_print_meta: general.name     = TinyLlama
+llm_load_print_meta: BOS token        = 1 '<s>'
+llm_load_print_meta: EOS token        = 2 '</s>'
+llm_load_print_meta: UNK token        = 0 '<unk>'
+llm_load_print_meta: PAD token        = 2 '</s>'
+llm_load_print_meta: LF token         = 13 '<0x0A>'
+llm_load_print_meta: max token length = 48
+llm_load_tensors: ggml ctx size =    0.19 MiB
+ggml_backend_metal_log_allocated_size: allocated buffer, size =  2098.36 MiB, ( 2098.42 / 49152.00)
+llm_load_tensors: offloading 22 repeating layers to GPU
+llm_load_tensors: offloading non-repeating layers to GPU
+llm_load_tensors: offloaded 23/23 layers to GPU
+llm_load_tensors:        CPU buffer size =   125.00 MiB
+llm_load_tensors:      Metal buffer size =  2098.36 MiB
+llama_new_context_with_model: n_ctx      = 8192
+llama_new_context_with_model: n_batch    = 512
+llama_new_context_with_model: n_ubatch   = 512
+llama_new_context_with_model: flash_attn = 1
+llama_new_context_with_model: freq_base  = 10000.0
+llama_new_context_with_model: freq_scale = 1
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M1 Max
+ggml_metal_init: picking default device: Apple M1 Max
+ggml_metal_init: using embedded metal library
+ggml_metal_init: GPU name:   Apple M1 Max
+ggml_metal_init: GPU family: MTLGPUFamilyApple7  (1007)
+ggml_metal_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_init: GPU family: MTLGPUFamilyMetal3  (5001)
+ggml_metal_init: simdgroup reduction support   = true
+ggml_metal_init: simdgroup matrix mul. support = true
+ggml_metal_init: hasUnifiedMemory              = true
+ggml_metal_init: recommendedMaxWorkingSetSize  = 51539.61 MB
+llama_kv_cache_init:      Metal KV buffer size =   176.00 MiB
+llama_new_context_with_model: KV self size  =  176.00 MiB, K (f16):   88.00 MiB, V (f16):   88.00 MiB
+llama_new_context_with_model:        CPU  output buffer size =     0.52 MiB
+llama_new_context_with_model:      Metal compute buffer size =    66.50 MiB
+llama_new_context_with_model:        CPU compute buffer size =    20.01 MiB
+llama_new_context_with_model: graph nodes  = 623
+llama_new_context_with_model: graph splits = 2
+DEBUG [initialize] initializing slots | n_slots=4 tid="0x20425cc00" timestamp=1720586973
+DEBUG [initialize] new slot | n_ctx_slot=2048 slot_id=0 tid="0x20425cc00" timestamp=1720586973
+DEBUG [initialize] new slot | n_ctx_slot=2048 slot_id=1 tid="0x20425cc00" timestamp=1720586973
+DEBUG [initialize] new slot | n_ctx_slot=2048 slot_id=2 tid="0x20425cc00" timestamp=1720586973
+DEBUG [initialize] new slot | n_ctx_slot=2048 slot_id=3 tid="0x20425cc00" timestamp=1720586973
+INFO [main] model loaded | tid="0x20425cc00" timestamp=1720586973
+DEBUG [update_slots] all slots are idle and system prompt is empty, clear the KV cache | tid="0x20425cc00" timestamp=1720586973
+DEBUG [process_single_task] slot data | n_idle_slots=4 n_processing_slots=0 task_id=0 tid="0x20425cc00" timestamp=1720586973
+time=2024-07-10T00:49:33.576-04:00 level=INFO source=server.go:609 msg="llama runner started in 0.25 seconds"
+time=2024-07-10T00:49:33.576-04:00 level=DEBUG source=sched.go:490 msg="finished setting up runner" model=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+DEBUG [process_single_task] slot data | n_idle_slots=4 n_processing_slots=0 task_id=1 tid="0x20425cc00" timestamp=1720586973
+DEBUG [log_server_request] request | method="POST" params={} path="/tokenize" remote_addr="127.0.0.1" remote_port=60203 status=200 tid="0x16cfc7000" timestamp=1720586973
+time=2024-07-10T00:49:33.578-04:00 level=DEBUG source=prompt.go:168 msg="prompt now fits in context window" required=179 window=2048
+time=2024-07-10T00:49:33.578-04:00 level=DEBUG source=routes.go:1334 msg="chat handler" prompt="<|system|>\nYou are a helpful AI assistant.</s>\n<|user|>\nHere is the query:\nTell me a random fun fact about the Roman Empire\n\nCreate a concise, 3-5 word phrase with an emoji as a title for the previous query. Suitable Emojis for the summary can be used to enhance understanding but avoid quotation marks or special formatting. RESPOND ONLY WITH THE TITLE TEXT.\n\nExamples of titles:\n📉 Stock Market Trends\n🍪 Perfect Chocolate Chip Recipe\nEvolution of Music Streaming\nRemote Work Productivity Tips\nArtificial Intelligence in Healthcare\n🎮 Video Game Development Insights</s>\n<|assistant|>\n" images=0
+DEBUG [process_single_task] slot data | n_idle_slots=4 n_processing_slots=0 task_id=2 tid="0x20425cc00" timestamp=1720586973
+DEBUG [launch_slot_with_data] slot is processing task | slot_id=0 task_id=3 tid="0x20425cc00" timestamp=1720586973
+DEBUG [update_slots] slot progression | ga_i=0 n_past=0 n_past_se=0 n_prompt_tokens_processed=179 slot_id=0 task_id=3 tid="0x20425cc00" timestamp=1720586973
+DEBUG [update_slots] kv cache rm [p0, end) | p0=0 slot_id=0 task_id=3 tid="0x20425cc00" timestamp=1720586973
+DEBUG [print_timings] prompt eval time     =      72.38 ms /   179 tokens (    0.40 ms per token,  2473.02 tokens per second) | n_prompt_tokens_processed=179 n_tokens_second=2473.0246887995468 slot_id=0 t_prompt_processing=72.381 t_token=0.4043631284916201 task_id=3 tid="0x20425cc00" timestamp=1720586974
+DEBUG [print_timings] generation eval time =     497.54 ms /    50 runs   (    9.95 ms per token,   100.49 tokens per second) | n_decoded=50 n_tokens_second=100.49483657529676 slot_id=0 t_token=9.95076 t_token_generation=497.538 task_id=3 tid="0x20425cc00" timestamp=1720586974
+DEBUG [print_timings]           total time =     569.92 ms | slot_id=0 t_prompt_processing=72.381 t_token_generation=497.538 t_total=569.919 task_id=3 tid="0x20425cc00" timestamp=1720586974
+DEBUG [update_slots] slot released | n_cache_tokens=229 n_ctx=8192 n_past=228 n_system_tokens=0 slot_id=0 task_id=3 tid="0x20425cc00" timestamp=1720586974 truncated=false
+DEBUG [log_server_request] request | method="POST" params={} path="/completion" remote_addr="127.0.0.1" remote_port=60203 status=200 tid="0x16cfc7000" timestamp=1720586974
+[GIN] 2024/07/10 - 00:49:34 | 200 |  857.608958ms |       127.0.0.1 | POST     "/v1/chat/completions"
+time=2024-07-10T00:49:34.149-04:00 level=DEBUG source=sched.go:494 msg="context for request finished"
+time=2024-07-10T00:49:34.149-04:00 level=DEBUG source=sched.go:366 msg="runner with non-zero duration has gone idle, adding timer" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4 duration=6m40s
+time=2024-07-10T00:49:34.149-04:00 level=DEBUG source=sched.go:384 msg="after processing request finished event" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4 refCount=0
+[GIN] 2024/07/10 - 00:49:54 | 200 |    4.497167ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2024/07/10 - 00:51:13 | 200 |    3.131042ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2024/07/10 - 00:51:25 | 200 |      27.959µs |             ::1 | GET      "/"
+[GIN] 2024/07/10 - 00:51:25 | 404 |       9.541µs |             ::1 | GET      "/favicon.ico"
+[GIN] 2024/07/10 - 00:56:06 | 200 |      1.6845ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2024/07/10 - 00:56:06 | 200 |      44.458µs |       127.0.0.1 | GET      "/api/version"
+time=2024-07-10T00:56:14.182-04:00 level=DEBUG source=sched.go:368 msg="timer expired, expiring to unload" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+time=2024-07-10T00:56:14.182-04:00 level=DEBUG source=sched.go:387 msg="runner expired event received" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+time=2024-07-10T00:56:14.182-04:00 level=DEBUG source=sched.go:403 msg="got lock to unload" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+time=2024-07-10T00:56:14.183-04:00 level=DEBUG source=server.go:1026 msg="stopping llama server"
+time=2024-07-10T00:56:14.183-04:00 level=DEBUG source=server.go:1032 msg="waiting for llama server to exit"
+time=2024-07-10T00:56:14.201-04:00 level=DEBUG source=server.go:1036 msg="llama server stopped"
+time=2024-07-10T00:56:14.201-04:00 level=DEBUG source=sched.go:408 msg="runner released" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+time=2024-07-10T00:56:14.201-04:00 level=DEBUG source=sched.go:412 msg="sending an unloaded event" modelPath=/Users/ih0dl/.ollama/models/blobs/sha256-7d9e1cd89192fa158f7f32e07a28e989558b0a21272b461447d8b3d0a3e8d3f4
+time=2024-07-10T00:56:14.201-04:00 level=DEBUG source=sched.go:335 msg="ignoring unload event with no pending requests"
+[GIN] 2024/07/10 - 00:56:15 | 200 |    3.913458ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2024/07/10 - 00:56:15 | 200 |      74.042µs |       127.0.0.1 | GET      "/api/version"
+[GIN] 2024/07/10 - 01:05:42 | 200 |      29.708µs |             ::1 | GET      "/"
+time=2024-07-10T01:16:20.883-04:00 level=DEBUG source=sched.go:116 msg="shutting down scheduler pending loop"
+time=2024-07-10T01:16:20.883-04:00 level=DEBUG source=sched.go:345 msg="shutting down scheduler completed loop"
+time=2024-07-10T01:16:20.883-04:00 level=DEBUG source=assets.go:112 msg="cleaning up" dir=/var/folders/zz/d9r636l52p91k1z6gmk9v1p00000gp/T/ollama1619639915
